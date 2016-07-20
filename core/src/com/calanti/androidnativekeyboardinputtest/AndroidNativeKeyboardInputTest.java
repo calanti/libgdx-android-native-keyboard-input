@@ -206,9 +206,11 @@ public class AndroidNativeKeyboardInputTest extends Game implements VisibleViewS
 
 		String keyboardText = "Keyboard height: "+gameKeyboardHeight+", is open: "+(keyboardOpen ? "yes" : "no, removing stage focus");
 
-		keyboardLabel.setText(keyboardText);
-		keyboardLabel.setPosition(0, gameKeyboardHeight);
-
+		if(keyboardLabel != null) {
+			keyboardLabel.setText(keyboardText);
+			keyboardLabel.setPosition(0, gameKeyboardHeight);
+		}
+		
 		if(!keyboardOpen){
 			androidTextInputInterface.keyboardHideDetected();
 			stage.unfocusAll();
