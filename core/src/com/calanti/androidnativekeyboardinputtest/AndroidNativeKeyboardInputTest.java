@@ -213,7 +213,7 @@ public class AndroidNativeKeyboardInputTest extends Game implements VisibleViewS
 		
 		if(!keyboardOpen){
 			androidTextInputInterface.keyboardHideDetected();
-			stage.unfocusAll();
+		        if(stage != null) stage.unfocusAll();
 		}
 	}
 
@@ -222,6 +222,6 @@ public class AndroidNativeKeyboardInputTest extends Game implements VisibleViewS
 		super.pause();
 		//drop keyboard and focus on pause (otherwise it stays open is Task Manager / Home button pressed)
 		androidTextInputInterface.forceHideKeyboard();
-		stage.unfocusAll();
+		if(stage != null) stage.unfocusAll();
 	}
 }
